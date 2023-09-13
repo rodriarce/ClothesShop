@@ -29,6 +29,14 @@ public class PlayerEquipment : MonoBehaviour
             collision.GetComponent<ISellItems>().OnSellItems();
 
         }
+        if (collision.gameObject.CompareTag("NPC"))
+        {
+
+            collision.GetComponent<InpController>().OnEnterNpc();
+
+        }
+
+
     }
 
 

@@ -9,6 +9,7 @@ public class PlayerDependencies : MonoBehaviour
     public PlayerStats playerStats;
     public UIManager uiManager;
     public PlayerSkins playerSkins;
+    public AudioManager audioManager;
       
 
     // Start is called before the first frame update
@@ -21,6 +22,7 @@ public class PlayerDependencies : MonoBehaviour
         playerStats = GetComponent<PlayerStats>();
         uiManager = FindObjectOfType<UIManager>();
         playerSkins = GetComponent<PlayerSkins>();
+        audioManager = FindObjectOfType<AudioManager>();
     }
 
     void Start()

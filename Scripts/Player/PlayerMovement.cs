@@ -31,6 +31,7 @@ public class PlayerMovement : MonoBehaviour
     {
        playerDependencies = GetComponent<PlayerDependencies>();
        
+       
     }
 
    
@@ -62,11 +63,11 @@ public class PlayerMovement : MonoBehaviour
 
 
 
-        if (inputValue.x == 1)
+        if (inputValue.x > 0)
         {
             playerAvatar.transform.rotation = Quaternion.identity;
         }
-        else if (inputValue.x == -1)
+        else if (inputValue.x < 0)
         {
             playerAvatar.transform.rotation = Quaternion.Euler(0f, 180f, 0f);
         }

@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 
 public class SellerController : MonoBehaviour, ISellItems
@@ -11,22 +10,24 @@ public class SellerController : MonoBehaviour, ISellItems
 
 
     public void OnEndSell(ItemData itemData)
-    {
-
-
-       
-
+    {      
 
         if (playerDependencies.playerStats.OnPurchasedItem(itemData.price))
         {
 
             if (itemData.kindOfItem == KindOfItem.Skin)
             {
-                playerDependencies.playerSkins.OnChangeSkin(itemData.itemName);
+                playerDependencies.uiManager.OnEquipItem = () => playerDependencies.playerSkins.OnChangeSkin(itemData.itemName);
+                playerDependencies.uiManager.ShowPanelEquipItem();
+
+            }
+            else
+            {
+                playerDependencies.uiManager.ShowPanelInfo("Succes Buying Item!");
             }
 
 
-            playerDependencies.uiManager.ShowPanelInfo("Succes Buy Item");
+           
         }
         else
         {
