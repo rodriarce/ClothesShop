@@ -5,8 +5,10 @@ using UnityEngine;
 public interface ISellItems 
 {
     public void OnSellItems();
-    public void OnEndSell();
-    public PlayerEquipment PlayerEquipment { get; set; }
+    public void OnEndSell(ItemData itemData);
+    
+    public PlayerDependencies playerDependencies { get; set; }
+
 
    
 

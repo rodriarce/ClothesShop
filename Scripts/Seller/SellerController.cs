@@ -4,26 +4,43 @@ using UnityEngine;
 
 public class SellerController : MonoBehaviour, ISellItems
 {
-   
-    public UIManager uiManager;
-    public PlayerEquipment PlayerEquipment { get; set; }
+      
+    public PlayerDependencies playerDependencies { get; set; }
 
-    public void OnEndSell()
+
+
+
+    public void OnEndSell(ItemData itemData)
     {
-        uiManager.HideShopPanel();
-        PlayerEquipment.isInMenu = false;
+
+
+        if (playerDependencies.playerStats.OnPurchasedItem(itemData.price))
+        {
+            playerDependencies.uiManager.ShowPanelInfo("Succes Buy Item");
+        }
+        else
+        {
+            playerDependencies.uiManager.ShowPanelInfo("Not Enough Coins");
+        }
+
+      
+       
     }
+
+    
+
+   
 
     public void OnSellItems()
     {
-
-        uiManager.ShowShopPanel();
+        playerDependencies.uiManager.isInMenu = true;
+        playerDependencies.uiManager.ShowShopPanel();
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        PlayerEquipment = FindObjectOfType<PlayerEquipment>();
+       playerDependencies = FindObjectOfType<PlayerDependencies>();
     }
 
     // Update is called once per frame

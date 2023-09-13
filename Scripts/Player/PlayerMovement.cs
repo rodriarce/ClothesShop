@@ -17,8 +17,8 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 lastPositon;
     public UnityEvent<Vector2> onMovePlayer;
     public LayerMask playerLayer;
-    public Transform pivot;
-    public PlayerEquipment playerEquipment;
+    public Transform pivot;   
+    private PlayerDependencies playerDependencies;
 
     // Start is called before the first frame update
 
@@ -29,7 +29,8 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
-        
+       playerDependencies = GetComponent<PlayerDependencies>();
+       
     }
 
    
@@ -38,8 +39,9 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
 
-        if (playerEquipment.isInMenu)
+        if (playerDependencies.uiManager.isInMenu)
         {
+            onMovePlayer.Invoke(Vector2.zero);
             return;
         }
 
@@ -52,7 +54,7 @@ public class PlayerMovement : MonoBehaviour
         Vector3 translation = inputValue * speedPlayer * Time.fixedDeltaTime;
        
 
-        //GetComponent<Rigidbody2D>().velocity = translation;
+     
        
         RaycastHit2D hit = Physics2D.Raycast(pivot.transform.position, inputValue, 0.5f, playerLayer);
 
@@ -71,29 +73,12 @@ public class PlayerMovement : MonoBehaviour
         lastPositon = inputValue;
         onMovePlayer.Invoke(inputValue);
        
-        if (hit.collider != null)
-        {
-            //if (hit.collider.transform.CompareTag("Wall") || hit.collider.transform.CompareTag("Seller"))
-            //{
-            //    Debug.Log("You Hit A Wall");
-            //    Debug.DrawRay(transform.position, hit.transform.position, Color.red);
-            //    Debug.Log(hit.transform.name);
-
-            //}
-            //else
-            //{
-            //    transform.Translate(translation);
-            //}
-        }
-        else
+        if (hit.collider == null)
         {
             transform.Translate(translation);
-        }
-     
-        //else
-        //{
-        //   
-        //}
+       
+        }  
+      
 
 
 

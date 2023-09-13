@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class PlayerEquipment : MonoBehaviour
 {
-    public bool isInMenu;
+   
+   
+
+
 
     // Start is called before the first frame update
     void Start()
     {
-        
+       
     }
 
     // Update is called once per frame
@@ -22,19 +25,13 @@ public class PlayerEquipment : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Seller"))
         {
-            Debug.Log("You Hit a Seller");
-            isInMenu = true;
+           
+            collision.GetComponent<ISellItems>().OnSellItems();
+
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Seller"))
-        {
-            //Debug.Log("You Hit a Seller");
-            isInMenu = false;
-        }
-    }
+
   
 
 
