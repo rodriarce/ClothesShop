@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81a0562b38c1b3040b2502d4cbdd76b2, type: 3}
+  m_Name: BlueSkin
+  m_EditorClassIdentifier: 
+  itemName: BlueSkin
+  price: 200
+  icon: {fileID: 21300000, guid: 61384034e98e72e4196443f5b085f83a, type: 3}
+  kindOfItem: 1

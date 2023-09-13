@@ -8,6 +8,8 @@ public class PlayerDependencies : MonoBehaviour
     public PlayerEquipment playerEquipment;
     public PlayerStats playerStats;
     public UIManager uiManager;
+    public PlayerSkins playerSkins;
+      
 
     // Start is called before the first frame update
 
@@ -18,6 +20,7 @@ public class PlayerDependencies : MonoBehaviour
         playerEquipment = GetComponent<PlayerEquipment>(); 
         playerStats = GetComponent<PlayerStats>();
         uiManager = FindObjectOfType<UIManager>();
+        playerSkins = GetComponent<PlayerSkins>();
     }
 
     void Start()

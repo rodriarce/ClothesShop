@@ -14,8 +14,18 @@ public class SellerController : MonoBehaviour, ISellItems
     {
 
 
+       
+
+
         if (playerDependencies.playerStats.OnPurchasedItem(itemData.price))
         {
+
+            if (itemData.kindOfItem == KindOfItem.Skin)
+            {
+                playerDependencies.playerSkins.OnChangeSkin(itemData.itemName);
+            }
+
+
             playerDependencies.uiManager.ShowPanelInfo("Succes Buy Item");
         }
         else

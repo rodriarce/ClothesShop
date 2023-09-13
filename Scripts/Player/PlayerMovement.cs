@@ -56,7 +56,7 @@ public class PlayerMovement : MonoBehaviour
 
      
        
-        RaycastHit2D hit = Physics2D.Raycast(pivot.transform.position, inputValue, 0.5f, playerLayer);
+        RaycastHit2D hit = Physics2D.Raycast(pivot.transform.position, inputValue, 2f, playerLayer);
 
 
 
