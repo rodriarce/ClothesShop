@@ -10,7 +10,7 @@ public enum KindOfItem
 } 
 
 
-
+// Scriptable to store the items data in the shop
 
 [CreateAssetMenu(fileName = "Item", menuName = "Items")]
 

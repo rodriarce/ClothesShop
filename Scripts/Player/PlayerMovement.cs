@@ -5,7 +5,7 @@ using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 
-
+// Script to handle the inputs and the player movements and detects the triggers
 public class PlayerMovement : MonoBehaviour
 {
     public InputActionAsset inputActionAsset;
@@ -24,7 +24,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void Awake()
     {
-        inputActionAsset.Enable();
+        inputActionAsset.Enable(); 
+
     }
 
     void Start()
@@ -46,6 +47,7 @@ public class PlayerMovement : MonoBehaviour
             return;
         }
 
+        // Read the input value 
 
         inputValue = inputMovePlayer.action.ReadValue<Vector2>();
 
@@ -56,7 +58,7 @@ public class PlayerMovement : MonoBehaviour
        
 
      
-       
+       // Raycast to check walls 
         RaycastHit2D hit = Physics2D.Raycast(pivot.transform.position, inputValue, 2f, playerLayer);
 
 
@@ -84,8 +86,26 @@ public class PlayerMovement : MonoBehaviour
 
 
     }
-   
-  
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Seller"))
+        {
+
+            collision.GetComponent<ISellItems>().OnSellItems();
+
+        }
+        if (collision.gameObject.CompareTag("NPC"))
+        {
+
+            collision.GetComponent<InpController>().OnEnterNpc();
+
+        }
+
+
+    }
+
+
 
 
 }

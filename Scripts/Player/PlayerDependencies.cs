@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Script to handle the player dependencies
 public class PlayerDependencies : MonoBehaviour
 {
     public PlayerMovement playerMovement;
-    public PlayerEquipment playerEquipment;
     public PlayerStats playerStats;
     public UIManager uiManager;
     public PlayerSkins playerSkins;
@@ -18,7 +18,6 @@ public class PlayerDependencies : MonoBehaviour
     private void Awake()
     {
        playerMovement = GetComponent<PlayerMovement>();
-        playerEquipment = GetComponent<PlayerEquipment>(); 
         playerStats = GetComponent<PlayerStats>();
         uiManager = FindObjectOfType<UIManager>();
         playerSkins = GetComponent<PlayerSkins>();

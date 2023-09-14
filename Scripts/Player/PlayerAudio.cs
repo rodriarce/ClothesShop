@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Script in player to control the player sounds like walk
 public class PlayerAudio : MonoBehaviour
 {
     public PlayerDependencies playerDependencies;

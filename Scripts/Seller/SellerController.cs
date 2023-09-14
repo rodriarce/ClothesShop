@@ -1,6 +1,8 @@
 
 using UnityEngine;
 
+// Script to handle the sell Interaction with the player
+
 public class SellerController : MonoBehaviour, ISellItems
 {
       
@@ -11,7 +13,7 @@ public class SellerController : MonoBehaviour, ISellItems
 
     public void OnEndSell(ItemData itemData)
     {      
-
+        // Method when the sell ends to check if the player can buy the item
         if (playerDependencies.playerStats.OnPurchasedItem(itemData.price))
         {
 
@@ -19,6 +21,7 @@ public class SellerController : MonoBehaviour, ISellItems
             {
                 playerDependencies.uiManager.OnEquipItem = () => playerDependencies.playerSkins.OnChangeSkin(itemData.itemName);
                 playerDependencies.uiManager.ShowPanelEquipItem();
+               
 
             }
             else
@@ -26,12 +29,13 @@ public class SellerController : MonoBehaviour, ISellItems
                 playerDependencies.uiManager.ShowPanelInfo("Succes Buying Item!");
             }
 
+            playerDependencies.audioManager.OnConfirmButton();
 
-           
         }
         else
         {
             playerDependencies.uiManager.ShowPanelInfo("Not Enough Coins");
+            playerDependencies.audioManager.OnCancelButton();
         }
 
       
@@ -44,6 +48,7 @@ public class SellerController : MonoBehaviour, ISellItems
 
     public void OnSellItems()
     {
+        // Method when the player trigger with the seller
         playerDependencies.uiManager.isInMenu = true;
         playerDependencies.uiManager.ShowShopPanel();
     }

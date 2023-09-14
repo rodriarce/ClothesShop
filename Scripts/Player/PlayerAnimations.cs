@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+// Script  to control the player animations in the movements
+
 public class PlayerAnimations : MonoBehaviour
 {
     public Animator playerAnimator;
@@ -13,7 +16,7 @@ public class PlayerAnimations : MonoBehaviour
 
     public void OnPlayerMovement(Vector2 value)
     {
-       
+       // Set the animations when the player is walking
         if (value != Vector2.zero)
         {
             playerAnimator.SetBool("isWalk", true);

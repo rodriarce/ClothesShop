@@ -6,7 +6,9 @@ using UnityEngine.Events;
 using UnityEngine.UI;
 using System;
 
-public class UIManager : MonoBehaviour
+// Script To handle the UI 
+
+public class UIManager : MonoBehaviour 
 {
     public GameObject shopPanel;
     public GameObject panelTextInfo;
@@ -114,6 +116,7 @@ public class UIManager : MonoBehaviour
         shopPanel.gameObject.SetActive(false);
         isInMenu = false;        
         Cursor.visible = false;
+        audioManager.OnCancelButton();
     }
 
     // Update is called once per frame

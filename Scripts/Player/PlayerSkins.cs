@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
+// Script to store the skins data list and reference in the player
 public class PlayerSkins : MonoBehaviour
 {
     public List<SkinsData> playerSkins;
@@ -30,6 +31,7 @@ public class PlayerSkins : MonoBehaviour
 
     public void OnChangeSkin(string nameSkin)
     {
+        // Method to change the skin in the player
         var skin = GetPlayerSkin(nameSkin);
         hood.sprite = skin.hood;
         leftShoulder.sprite = skin.leftShoulder;

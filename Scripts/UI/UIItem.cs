@@ -10,13 +10,21 @@ public class UIItem : MonoBehaviour
     public TextMeshProUGUI textPrice;
     public Image iconImage;
     private ISellItems sellerItems;
-    // Start is called before the first frame update
+      // Start is called before the first frame update
     void Start()
     {
         SetItemData();
         sellerItems = GameObject.FindGameObjectWithTag("Seller").GetComponent<ISellItems>();
-        buyButton.onClick.AddListener(() => sellerItems.OnEndSell(itemData));
+        buyButton.onClick.AddListener(OnBuyItem);
+       
     }
+
+    private void OnBuyItem()
+    {
+        sellerItems.OnEndSell(itemData);
+     
+    }
+
 
     private void SetItemData()
     {
@@ -27,9 +35,4 @@ public class UIItem : MonoBehaviour
     }
 
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

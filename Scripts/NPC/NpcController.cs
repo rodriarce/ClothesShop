@@ -1,6 +1,8 @@
 using System.Collections;
 using UnityEngine;
 
+
+// Simple script for a possible npc in the game
 public class NpcController : MonoBehaviour, InpController
 {
     public UIManager UIManager { get; set; }

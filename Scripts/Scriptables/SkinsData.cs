@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
+// Scriptable Object to store the sprites of the skins
 [CreateAssetMenu(fileName = "Skin", menuName = "Items")]
 
 public class SkinsData : ScriptableObject

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Script to control the audios of the game like buttons and background music
 public class AudioManager : MonoBehaviour
 {
     public AudioSource audioSteps;

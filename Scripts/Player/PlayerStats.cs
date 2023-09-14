@@ -1,5 +1,7 @@
 using UnityEngine;
 
+
+// Script to handle player stats like the coins
 public class PlayerStats : MonoBehaviour
 {
     [SerializeField]
